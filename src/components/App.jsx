@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header/index.jsx";
-import { HashRouter, Switch } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+import Routes from "./Routes.jsx";
+import UserContext from "./userContext.jsx";
 
 export default function App() {
+  const [user, setUser] = useState({});
+
+  const login = (user, jwt) => {
+    localStorage.setItem("token", jwt);
+    setUser(user);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setUser({});
+  };
+
   return (
     <HashRouter>
-      <Header brand="Griitch blog" links={["login"]} />
-      <Switch></Switch>
+      <UserContext.Provider value={(user, login, logout)}>
+        <Header brand="Griitch blog" links={user ? ["login"] : ["logout"]} />
+        <Routes />
+      </UserContext.Provider>
     </HashRouter>
   );
 }
