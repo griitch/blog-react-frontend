@@ -15,10 +15,11 @@ function BlogPost() {
     {}
   );
 
-  const { loading: commentsLoading, data: comments } = useFetch(
-    `http://localhost:3000/comments/${id}`,
-    []
-  );
+  const {
+    loading: commentsLoading,
+    data: comments,
+    setData: setComments,
+  } = useFetch(`http://localhost:3000/comments/${id}`, []);
 
   useEffect(() => {
     document.title = blog ? capitalize(blog.title) : "loading";

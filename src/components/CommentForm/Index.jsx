@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import Container from "./Container.jsx";
 import UserContext from "../userContext.jsx";
+import PropTypes from "prop-types";
 import { useHistory, useParams } from "react-router-dom";
 
-function CommentForm() {
+function CommentForm(props) {
   const history = useHistory();
   const { id: postId } = useParams();
 
@@ -29,7 +30,16 @@ function CommentForm() {
         .then((resp) => resp.json())
         .then((res) => {
           if (!res.error) {
-            location.reload();
+            props.setComments((old) => [
+              ...old,
+              {
+                userId: {
+                  username: user,
+                },
+                comment,
+              },
+            ]);
+            setComment("");
           }
         });
     }
@@ -54,5 +64,9 @@ function CommentForm() {
     </form>
   );
 }
+
+CommentForm.propTypes = {
+  setComments: PropTypes.func,
+};
 
 export default CommentForm;
