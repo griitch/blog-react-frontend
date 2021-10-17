@@ -3,16 +3,16 @@ import UserContext from "../userContext.jsx";
 import { Redirect } from "react-router-dom";
 import Form from "./Form.jsx";
 
-function Login() {
+function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [result, setResult] = useState(null);
 
-  const { user, login } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/login", {
+    fetch("http://localhost:3000/users", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -22,10 +22,10 @@ function Login() {
     })
       .then((resp) => resp.json())
       .then((res) => {
-        if (res.error) {
-          setError(res.message);
+        if (res.err) {
+          setResult(res.message);
         } else {
-          login(res.username, res.token);
+          setResult(<Redirect to="/login" />);
         }
       });
   };
@@ -50,10 +50,10 @@ function Login() {
           type="password"
         />
       </div>
-      <h4>{error}</h4>
-      <button type="submit">Submit</button>
+      <h4>{result}</h4>
+      <button type="submit">Register</button>
     </Form>
   );
 }
 
-export default Login;
+export default RegisterForm;

@@ -27,7 +27,10 @@ export default function App() {
   return (
     <HashRouter>
       <UserContext.Provider value={{ user, login, logout }}>
-        <Header brand="Griitch blog" links={user ? ["logout"] : ["login"]} />
+        <Header
+          brand="Griitch blog"
+          links={user ? ["logout"] : ["login", "register"]}
+        />
         <Routes />
       </UserContext.Provider>
     </HashRouter>

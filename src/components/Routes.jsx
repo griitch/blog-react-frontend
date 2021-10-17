@@ -4,6 +4,7 @@ import BlogsList from "./BlogsList/index.jsx";
 import BlogPost from "./BlogPost/Index.jsx";
 import Login from "./Login/Index.jsx";
 import Logout from "./Logout/Index.jsx";
+import RegisterForm from "./Register/index.jsx";
 
 function Routes() {
   return (
@@ -14,6 +15,9 @@ function Routes() {
 
       <Route path="/logout">
         <Logout />
+      </Route>
+      <Route path="/register">
+        <RegisterForm />
       </Route>
 
       <Route path="/posts/:id">
