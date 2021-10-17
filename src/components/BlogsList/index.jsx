@@ -7,24 +7,26 @@ import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch.jsx";
 
 function Blogs() {
-  const { data: blogs, loading } = useFetch("http://localhost:3000/posts");
+  const { data: blogs, loading } = useFetch("http://localhost:3000/posts", []);
 
-  return loading ? (
-    <h1>loading...</h1>
-  ) : (
+  return (
     <Container>
-      {blogs.map((blog) => {
-        return (
-          <BlogListItem key={uniqid()}>
-            <Link to={`/posts/${blog._id}`}>{capitalize(blog.title)}</Link>
-            <h4>Posted : {new Date(blog.createdAt).toDateString()}</h4>
-            {blog.keywords.length > 0 && (
-              <h4>keywords : {blog.keywords.toString()}</h4>
-            )}
-            <p>{blog.description}</p>
-          </BlogListItem>
-        );
-      })}
+      {loading ? (
+        <h1>loading...</h1>
+      ) : (
+        blogs.map((blog) => {
+          return (
+            <BlogListItem key={uniqid()}>
+              <Link to={`/posts/${blog._id}`}>{capitalize(blog.title)}</Link>
+              <h4>Posted : {new Date(blog.createdAt).toDateString()}</h4>
+              {blog.keywords.length > 0 && (
+                <h4>keywords : {blog.keywords.toString()}</h4>
+              )}
+              <p>{blog.description}</p>
+            </BlogListItem>
+          );
+        })
+      )}
     </Container>
   );
 }

@@ -14,7 +14,7 @@ function Header(props) {
       <HeaderLinks>
         {props.links.map((link) => (
           <li key={uniqid()}>
-            <Link to={link}>{link}</Link>
+            <Link to={`/${link}`}>{link}</Link>
           </li>
         ))}
       </HeaderLinks>
