@@ -7,12 +7,19 @@ import StyledButton from "../Shared/Button.jsx";
 function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [result, setResult] = useState(null);
+  const [email, setEmail] = useState("");
 
   const { user } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (password !== passwordConfirmation) {
+      setResult("Passwords don't match");
+      return;
+    }
+
     fetch("http://localhost:3000/users", {
       headers: {
         Accept: "application/json",
@@ -36,18 +43,38 @@ function RegisterForm() {
   ) : (
     <Form onSubmit={handleSubmit}>
       <div>
-        <label>Username : </label>
+        <label>Username</label>
         <input
+          required
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           type="text"
         />
       </div>
       <div>
-        <label>Password : </label>
+        <label>Email</label>
         <input
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+        />
+      </div>
+      <div>
+        <label>Password</label>
+        <input
+          required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          type="password"
+        />
+      </div>
+      <div>
+        <label>Confirm password</label>
+        <input
+          required
+          value={passwordConfirmation}
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
           type="password"
         />
       </div>
