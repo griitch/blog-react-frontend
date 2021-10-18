@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import UserContext from "../userContext.jsx";
 import { Redirect } from "react-router-dom";
 import Form from "./Form.jsx";
+import StyledButton from "../Shared/Button.jsx";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -37,6 +38,7 @@ function Login() {
       <div>
         <label>Username : </label>
         <input
+          required
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           type="text"
@@ -45,13 +47,14 @@ function Login() {
       <div>
         <label>Password : </label>
         <input
+          required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           type="password"
         />
       </div>
       <h4>{error}</h4>
-      <button type="submit">Submit</button>
+      <StyledButton type="submit">Submit</StyledButton>
     </Form>
   );
 }

@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 const Container = styled.div`
+  @media only screen and (max-width: 600px) {
+    padding: 1rem 1rem;
+  }
   display: flex;
   justify-content: space-between;
   padding: 1.25rem 3.5rem;
-  background-color: palegoldenrod;
-
-  & a {
-    text-decoration: none;
-    color: inherit;
-  }
+  background-color: ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.secondary};
 
   & h1 {
     transition: all 200ms;
@@ -18,7 +17,7 @@ const Container = styled.div`
   & h1:hover {
     text-decoration: underline;
     text-underline-offset: 1.5rem;
-    color: red;
+    color: ${(props) => props.theme.light};
   }
 `;
 

@@ -3,6 +3,8 @@ import Header from "./Header/index.jsx";
 import { HashRouter } from "react-router-dom";
 import Routes from "./Routes.jsx";
 import UserContext from "./userContext.jsx";
+import { theme } from "./theme.js";
+import { ThemeProvider } from "styled-components";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -26,13 +28,15 @@ export default function App() {
 
   return (
     <HashRouter>
-      <UserContext.Provider value={{ user, login, logout }}>
-        <Header
-          brand="Griitch blog"
-          links={user ? ["logout"] : ["login", "register"]}
-        />
-        <Routes />
-      </UserContext.Provider>
+      <ThemeProvider theme={theme}>
+        <UserContext.Provider value={{ user, login, logout }}>
+          <Header
+            brand="Griitch blog"
+            links={user ? ["logout"] : ["login", "register"]}
+          />
+          <Routes />
+        </UserContext.Provider>
+      </ThemeProvider>
     </HashRouter>
   );
 }

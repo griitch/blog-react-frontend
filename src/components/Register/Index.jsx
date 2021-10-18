@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import UserContext from "../userContext.jsx";
 import { Redirect } from "react-router-dom";
 import Form from "./Form.jsx";
+import StyledButton from "../Shared/Button.jsx";
 
 function RegisterForm() {
   const [username, setUsername] = useState("");
@@ -51,7 +52,7 @@ function RegisterForm() {
         />
       </div>
       <h4>{result}</h4>
-      <button type="submit">Register</button>
+      <StyledButton type="submit">Register</StyledButton>
     </Form>
   );
 }

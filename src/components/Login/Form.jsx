@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 const Form = styled.form`
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+    margin: 4rem auto;
+  }
+
   width: 50%;
   margin: 3rem auto;
 
@@ -16,12 +21,6 @@ const Form = styled.form`
   }
   & label {
     width: 20%;
-  }
-  & button {
-    margin: auto;
-    display: block;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.2rem;
   }
 `;
 

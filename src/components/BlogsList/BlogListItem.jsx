@@ -7,17 +7,17 @@ const BlogListItem = styled.div`
 
   & a {
     text-decoration: none;
-    color: inherit;
+    color: ${(props) => props.theme.dark};
     font-size: 1.75rem;
     font-weight: 700;
   }
   & a:hover {
     text-decoration: underline;
-    color: #383737;
+    color: ${(props) => props.theme.primary};
   }
 
   & h4 {
-    color: #383737;
+    color: ${(props) => props.theme.light};
   }
 `;
 

@@ -3,6 +3,7 @@ import Container from "./Container.jsx";
 import UserContext from "../userContext.jsx";
 import PropTypes from "prop-types";
 import { useHistory, useParams } from "react-router-dom";
+import StyledButton from "../Shared/Button.jsx";
 
 function CommentForm(props) {
   const history = useHistory();
@@ -59,7 +60,11 @@ function CommentForm(props) {
         ) : (
           <input type="text" disabled placeholder="login to post comments" />
         )}
-        {user ? <button>Add</button> : <button>Login</button>}
+        {user ? (
+          <StyledButton>Add</StyledButton>
+        ) : (
+          <StyledButton>Login</StyledButton>
+        )}
       </Container>
     </form>
   );
