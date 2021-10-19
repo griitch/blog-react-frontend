@@ -22,8 +22,25 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("token") && localStorage.getItem("user"))
-      setUser(localStorage.getItem("user"));
+    if (localStorage.getItem("token") && localStorage.getItem("user")) {
+      fetch("http://localhost:3000/login/auth", {
+        headers: {
+          Authorization: `bearer ${localStorage.getItem("token")}`,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      })
+        .then((resp) => resp.json())
+        .then((res) => {
+          if (res.error || res.user !== localStorage.getItem("user")) {
+            // the jwt is invalid
+            setUser(null);
+          } else {
+            setUser(localStorage.getItem("user"));
+          }
+        });
+    }
   }, []);
 
   return (
