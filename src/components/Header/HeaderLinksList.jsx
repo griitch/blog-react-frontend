@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const HeaderLinks = styled.ul`
+const HeaderLinksList = styled.ul`
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   @media only screen and (max-width: 600px) {
     & li a {
@@ -20,4 +20,4 @@ const HeaderLinks = styled.ul`
     color: ${(props) => props.theme.light};
   }
 `;
-export default HeaderLinks;
+export default HeaderLinksList;
