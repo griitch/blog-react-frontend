@@ -26,6 +26,10 @@ function BlogPost() {
 
   useEffect(() => {
     document.title = blog ? capitalize(blog.title) : "loading";
+
+    return () => {
+      document.title = "Griitch blog";
+    };
   }, [blog]);
 
   return (
