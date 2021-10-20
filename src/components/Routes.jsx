@@ -1,10 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import BlogsList from "./BlogsList/index.jsx";
+import BlogsList from "./BlogsList/Index.jsx";
 import BlogPost from "./BlogPost/Index.jsx";
 import Login from "./Login/Index.jsx";
 import Logout from "./Logout/Index.jsx";
-import RegisterForm from "./Register/index.jsx";
+import RegisterForm from "./Register/Index.jsx";
 
 function Routes() {
   return (

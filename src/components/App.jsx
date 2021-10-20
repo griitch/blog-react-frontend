@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header/index.jsx";
+import Header from "./Header/Index.jsx";
 import { HashRouter } from "react-router-dom";
 import Routes from "./Routes.jsx";
 import UserContext from "./userContext.jsx";
