@@ -16,7 +16,7 @@ function CommentForm(props) {
     if (!user) history.push("/login");
     else {
       const jwt = localStorage.getItem("token");
-      fetch(`http://localhost:3000/comments/${postId}`, {
+      fetch(`https://afternoon-cliffs-13118.herokuapp.com/comments/${postId}`, {
         headers: {
           Authorization: `bearer ${jwt}`,
           Accept: "application/json",

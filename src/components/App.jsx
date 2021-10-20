@@ -23,7 +23,7 @@ export default function App() {
 
   useEffect(() => {
     if (localStorage.getItem("token") && localStorage.getItem("user")) {
-      fetch("http://localhost:3000/login/auth", {
+      fetch("https://afternoon-cliffs-13118.herokuapp.com/login/auth", {
         headers: {
           Authorization: `bearer ${localStorage.getItem("token")}`,
           Accept: "application/json",

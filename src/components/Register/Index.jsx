@@ -20,7 +20,7 @@ function RegisterForm() {
       return;
     }
 
-    fetch("http://localhost:3000/users", {
+    fetch("https://afternoon-cliffs-13118.herokuapp.com/users", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

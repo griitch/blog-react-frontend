@@ -11,7 +11,7 @@ import CommentForm from "../CommentForm/Index.jsx";
 function BlogPost() {
   const { id } = useParams();
   const { loading, data: blog } = useFetch(
-    `http://localhost:3000/posts/${id}`,
+    `https://afternoon-cliffs-13118.herokuapp.com/posts/${id}`,
     {}
   );
 
@@ -19,7 +19,10 @@ function BlogPost() {
     loading: commentsLoading,
     data: comments,
     setData: setComments,
-  } = useFetch(`http://localhost:3000/comments/${id}`, []);
+  } = useFetch(
+    `https://afternoon-cliffs-13118.herokuapp.com/comments/${id}`,
+    []
+  );
 
   useEffect(() => {
     document.title = blog ? capitalize(blog.title) : "loading";

@@ -7,7 +7,10 @@ import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch.jsx";
 
 function Blogs() {
-  const { data: blogs, loading } = useFetch("http://localhost:3000/posts", []);
+  const { data: blogs, loading } = useFetch(
+    "https://afternoon-cliffs-13118.herokuapp.com/posts",
+    []
+  );
 
   return (
     <Container>

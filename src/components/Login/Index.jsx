@@ -13,7 +13,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/login", {
+    fetch("https://afternoon-cliffs-13118.herokuapp.com/login", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
