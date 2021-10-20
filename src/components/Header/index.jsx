@@ -4,7 +4,7 @@ import HeaderLinksList from "./HeaderLinksList.jsx";
 import { Link } from "react-router-dom";
 import uniqid from "uniqid";
 import PropTypes from "prop-types";
-import HeaderLinksDropDown from "./HeaderLinksDropDown/index.jsx";
+import HeaderLinksDropDown from "./HeaderLinksDropDown/Index.jsx";
 
 function Header(props) {
   const [width, setWidth] = useState(window.innerWidth);
