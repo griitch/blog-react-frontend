@@ -1,13 +1,6 @@
 import styled from "styled-components";
 
 const Form = styled.form`
-  @media only screen and (max-width: 600px) {
-    width: 95%;
-    margin: 4rem auto;
-    & input {
-      width: 50%;
-    }
-  }
   width: 60%;
   margin: 3rem auto;
 
@@ -19,8 +12,16 @@ const Form = styled.form`
 
   & input {
     width: 70%;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
     line-height: 2rem;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 95%;
+    padding-right: 10px;
+    margin: 4rem auto;
+    & input {
+      width: 55%;
+    }
   }
 `;
 
